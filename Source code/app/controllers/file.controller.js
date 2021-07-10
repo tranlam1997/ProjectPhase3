@@ -5,7 +5,6 @@ const UserInfor = db.userInfor;
 
 const uploadFile = async (req, res) => {
   try {
-    console.log(req.file);
     if (req.file == undefined) {
       return res.send(`You must select a file.`);
     }
@@ -23,7 +22,6 @@ const uploadFile = async (req, res) => {
     user.avatarName = `${id}.${req.file.originalname}`;
     try {
       await user.save();
-      console.log(req.path);
       if (req.path === "/user/2/updateInfor/uploadAvatar")
         return res.send(`File has been uploaded.`);
       else return res.send(`File has been updated.`);

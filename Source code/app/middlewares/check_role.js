@@ -36,7 +36,6 @@ const isDirector = (req,res,next) => {
 };
 
 const isAdmin = (req,res,next) => {
-  console.log(req.user.roles);
   if (req.user.roles.includes("admin")) {
     next();
     return;

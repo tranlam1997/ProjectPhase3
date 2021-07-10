@@ -25,7 +25,6 @@ module.exports = (Form, User, UserInfor, Op) => {
         if (forms.length == 0) return res.status(404).send({
             message: "All users finished their form"
         });
-        console.log(forms[0].user.userName)
         const users = forms.map(user => ({
             userId: user.userId,
             userName: user.user.userName
@@ -59,7 +58,6 @@ module.exports = (Form, User, UserInfor, Op) => {
         if (forms.length == 0) return res.status(404).send({
             message: `All users not finished their ${formCategory} form`
         });
-        console.log(forms[0].user.userName)
         const users = forms.map(user => ({
             userId: user.userId,
             userName: user.user.userName
