@@ -3,7 +3,7 @@
 ## Đề tài Project: Hệ thống quản lý nhân sự
 ## Link nội dung dự án: https://docs.google.com/spreadsheets/d/10gaEy3Jg0LdbhpSfV9zC4M88YCOtqzXmSY8b2vcrZ1o/edit#gid=171308749
 ### Sản phẩm release bao gồm:	
-###	  Source code (sử dụng nodejs 14.x + express.js + sequelize)
-###	  Database script (create table, alter table, relational database)
-###	  Postman export file (cần bố trí api name và folders hợp lý)
+###	  1. Source code (sử dụng nodejs 14.x + express.js + sequelize)
+###	  2. Database script (create table, alter table, relational database)
+###	  3. Postman export file (cần bố trí api name và folders hợp lý)
 
