@@ -22,8 +22,6 @@ app.use(express.urlencoded({
 }));
 
 
-
-
 db.sequelize.sync({force: true}).then(async () => {
     const admin = await User.create({
         userName: 'admin',
@@ -31,17 +29,15 @@ db.sequelize.sync({force: true}).then(async () => {
         email: 'foet1997@gmail.com',
         phone: '0946377596'
     }).catch(err => res.status(500).send({message: `Error while creating user \n ${err}`}));
-    const role = await admin.createRole({ nameOfRole : 'admin'}).catch(err => res.status(500).send({message: `Error while set role admin \n ${err}`}));
-    await admin.addRole(role);
+        await admin.createRole({ nameOfRole : 'admin'}).catch(err => res.status(500).send({message: `Error while set role admin \n ${err}`}));
 });
 
 app.use(checkPath);
 
 
-
 app.get('/', (req, res) => {
     res.json({
-        hello: "Hi I'm main server"
+        hello: "This is my project: Human resource management system"
     })
 });
 

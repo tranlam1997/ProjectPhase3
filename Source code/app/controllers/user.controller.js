@@ -20,13 +20,13 @@ module.exports = (User, UserInfor) => {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
-        }).catch(err =>  res.status(500).send("Error while creating user " + err));
+        }).catch(err => res.status(500).send("Error while creating user " + err));
         await user.createUserinfor({
             staffId: functions.randomNum(10000, 20000)
         }).catch(err => res.status(500).send("Error while creating user infor " + err));
         const role = await user.createRole({
             nameOfRole: 'employee'
-        }).catch(err =>  res.status(500).send("Error while setting role for user " + err));
+        }).catch(err => res.status(500).send("Error while setting role for user " + err));
         console.log(role);
         await user.addRole(role);
         res.status(200).send({
@@ -125,16 +125,27 @@ module.exports = (User, UserInfor) => {
     }
 
     const deleteUser = async (req, res) => {
-        const userId = req.param.id;
+        const userId = req.params.id;
+
         if (!userId) return res.status(400).send('User id not found');
-        try {
-            const delUser = await User.findByPk(userId);
-            if (!delUser) return res.status(404).send('User not found');
-            await delUser.destroy();
+            const [user, userInfor] = await Promise.allSettled([User.findByPk(userId), UserInfor.findOne({
+                where: {
+                    userId: userId
+                }
+            })]).catch(err => res.status(500).send({
+                message: `Error while finding user`,
+                error: err
+            }));
+            console.log('hahaha')
+            if (!user.value || !userInfor.value) return res.status(404).send({
+                message: 'User not found'
+            });
+            await Promise.allSettled([user.value.destroy(), userInfor.value.destroy()]).catch(err => res.status(500).send({
+                message: "Error while removing user",
+                error: err
+            }));
+            console.log("hahaha")
             res.send("Delele user successfully!");
-        } catch (err) {
-            res.send(err);
-        }
     }
 
     const manageUser = async (req, res) => {
@@ -161,17 +172,21 @@ module.exports = (User, UserInfor) => {
             message: "Cannot retrieve role"
         });
         const suborRoles = suborRole.value.map(role => role.nameOfRole);
-        const managerRoles = managerRole.value.map(role => role.nameOfRole); 
-        if(suborRoles.includes('admin') || suborRoles.includes('director')){
-            return res.status(400).send({message: 'Not allowed to manage director or admin'});
+        const managerRoles = managerRole.value.map(role => role.nameOfRole);
+        if (suborRoles.includes('admin') || suborRoles.includes('director')) {
+            return res.status(400).send({
+                message: 'Not allowed to manage director or admin'
+            });
         } else {
             console.log(managerRoles);
-            if(!managerRoles.includes('manager') && !managerRoles.includes('director')){
-                return res.status(400).send({message: 'Not allowed to manage other users if you are not director or manager'});
+            if (!managerRoles.includes('manager') && !managerRoles.includes('director')) {
+                return res.status(400).send({
+                    message: 'Not allowed to manage other users if you are not director or manager'
+                });
 
             } else {
-                if(suborRoles.includes('hr') || suborRoles.includes('employee')){
-                    if(managerRoles.includes('manager')){
+                if (suborRoles.includes('hr') || suborRoles.includes('employee')) {
+                    if (managerRoles.includes('manager')) {
                         await manager.value.addSubordinate(subordinate.value).catch(err => res.status(500).send({
                             message: "Can't add subordinate"
                         }));
@@ -181,8 +196,8 @@ module.exports = (User, UserInfor) => {
                             message: "Employee and Hr must be managed by manager"
                         });
                     }
-                } else if(suborRoles.include('manager')){
-                    if(managerRoles.include('director')){
+                } else if (suborRoles.include('manager')) {
+                    if (managerRoles.include('director')) {
                         manager.value.addSubordinates(subordinate.value);
                         res.status(200).send("Manage user successfully")
                     } else {
