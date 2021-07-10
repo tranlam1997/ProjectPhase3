@@ -1,0 +1,1051 @@
+{
+	"info": {
+		"_postman_id": "eb754887-2526-4386-9f5c-6b436d733c57",
+		"name": "Human Resource Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Form",
+			"item": [
+				{
+					"name": "Submit Assessment Form",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZXMiOlsiZW1wbG95ZWUiXSwiZW1haWwiOiJ0cmFuYmluaG9jY2hvMkBnbWFpbC5jb20iLCJpYXQiOjE2MjU5MDE1MzgsImV4cCI6MTYyNjI2MTUzOH0.8ealIDbteVkS837_Atg6Z_FHawYM-XzTpSOE353_EiU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"unit\" : \"1\",\r\n\t\"position\" : \"position1\",\r\n\t\"content\" : \"content1\",\r\n\t\"result\" : \"result\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/form/submitAssessmentForm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"form",
+								"submitAssessmentForm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Submit Probationary Form",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZXMiOlsiZW1wbG95ZWUiXSwiZW1haWwiOiJ0cmFuYmluaG9jY2hvMkBnbWFpbC5jb20iLCJpYXQiOjE2MjU5MDg5OTgsImV4cCI6MTYyNjI2ODk5OH0.RTSlwrlVhhV8VvC84LpEHAUPk_KUvzMF9-1sR9gYHoo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"unit\" : \"1\",\r\n\t\"position\" : \"position1\",\r\n\t\"content\" : \"content1\",\r\n\t\"result\" : \"result\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/form/submitProbationaryForm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"form",
+								"submitProbationaryForm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Assessment Form",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZXMiOlsiYWRtaW4iXSwiZW1haWwiOiJmb2V0MTk5N0BnbWFpbC5jb20iLCJpYXQiOjE2MjU4NDU2NzgsImV4cCI6MTYyNjIwNTY3OH0.svmYcMR6g2rLRMZPtN_68w23LYM9PlKE8z3QaI1gfaA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/form/viewAssessmentForm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"form",
+								"viewAssessmentForm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Probationary Form",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImhyIiwic3RhZmZJZCI6MTI4MDYsImlhdCI6MTYyNTUwMjU4MywiZXhwIjoxNjI1NTA2MTgzfQ.qIz1jaQldDQaETU04H53EUNWBfwnZGSYxaPkzPhrnFw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/form/viewProbationaryForm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"form",
+								"viewProbationaryForm"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Assessment Form",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwic3RhZmZJZCI6MTE3NDUsImlhdCI6MTYyNTMyNzA3MSwiZXhwIjoxNjI1MzI3MTAxfQ.GaurPLXr53Ws0iMTk2Z5gqVkut5dc6FR8EKMCvlz9mw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"unit\" : \"1\",\r\n\t\"position\" : \"position1\",\r\n\t\"content\" : \"content1\",\r\n\t\"result\" : \"result\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/form/updateAssessmentForm?staffId=1&id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"form",
+								"updateAssessmentForm"
+							],
+							"query": [
+								{
+									"key": "staffId",
+									"value": "1"
+								},
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Probationary Form",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZXMiOlsiZW1wbG95ZWUiXSwiZW1haWwiOiJ0cmFuYmluaG9jY2hvMkBnbWFpbC5jb20iLCJpYXQiOjE2MjU5MDg5OTgsImV4cCI6MTYyNjI2ODk5OH0.RTSlwrlVhhV8VvC84LpEHAUPk_KUvzMF9-1sR9gYHoo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"unit\" : \"1\",\r\n\t\"position\" : \"position1\",\r\n\t\"content\" : \"content1\",\r\n\t\"result\" : \"result\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/form/updateProbationaryForm?staffId=1&id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"form",
+								"updateProbationaryForm"
+							],
+							"query": [
+								{
+									"key": "staffId",
+									"value": "1"
+								},
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Assessment Form",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZXMiOlsiYWRtaW4iXSwiZW1haWwiOiJmb2V0MTk5N0BnbWFpbC5jb20iLCJpYXQiOjE2MjU5MDA2NzIsImV4cCI6MTYyNjI2MDY3Mn0.rhxR2i-RppqRACqii9xEzdYGcuFqSOT2JCvjx3sj_Xg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"staffId\" : \"\",\r\n    \"passEmail\" : \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/form/createAssessmentForm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"form",
+								"createAssessmentForm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Probationary Form",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImVtcGxveWVlIiwic3RhZmZJZCI6MTM5MjcsImlhdCI6MTYyNTMzOTcyMywiZXhwIjoxNjI1MzQzMzIzfQ.-GgIx-1_oHInVy93gU6om8YpbWTgA92j4fNdtNaBA-o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"staffId\" :  \"\",\r\n    \"passEmail\" : \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/form/createProbationaryForm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"form",
+								"createProbationaryForm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve Assessment Form",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZXMiOlsiZW1wbG95ZWUiLCJtYW5hZ2VyIl0sImVtYWlsIjoidXNlcjNAZ21haWwuY29tIiwiaWF0IjoxNjI1OTA0MDg4LCJleHAiOjE2MjYyNjQwODh9.EEQ3pg_2gmDed-CsEXseLlsmPRORipp-wtAHZMOhElQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment\" : \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/form/approveAssessmentForm?formId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"form",
+								"approveAssessmentForm"
+							],
+							"query": [
+								{
+									"key": "formId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve Probationary Form",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywicm9sZSI6Im1hbmFnZXIiLCJzdGFmZklkIjoxMDgyMCwiaWF0IjoxNjI1NTAxMzk3LCJleHAiOjE2MjU1MDQ5OTd9.ghPG9RopejHAHolphgZR1B_uKc1-Ap2R2EmmwxAuGKg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment\" : \"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/form/approveProbationaryForm?formId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"form",
+								"approveProbationaryForm"
+							],
+							"query": [
+								{
+									"key": "formId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Close Assessment Form",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZXMiOlsiYWRtaW4iXSwiZW1haWwiOiJmb2V0MTk5N0BnbWFpbC5jb20iLCJpYXQiOjE2MjU4NDU2NzgsImV4cCI6MTYyNjIwNTY3OH0.svmYcMR6g2rLRMZPtN_68w23LYM9PlKE8z3QaI1gfaA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/form/closeAssessmentForm?formId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"form",
+								"closeAssessmentForm"
+							],
+							"query": [
+								{
+									"key": "formId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Close Probationary Form",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImhyIiwic3RhZmZJZCI6MTI4MDYsImlhdCI6MTYyNTUwMjU4MywiZXhwIjoxNjI1NTA2MTgzfQ.qIz1jaQldDQaETU04H53EUNWBfwnZGSYxaPkzPhrnFw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/form/closeProbationaryForm?formId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"form",
+								"closeProbationaryForm"
+							],
+							"query": [
+								{
+									"key": "formId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"firstName\": \"Tran\",\r\n\t\"lastName\": \"Lam\",\r\n\t\"userName\": \"user1\",\r\n\t\"password\": \"123456\",\r\n\t\"email\": \"noisim1997@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/hrms/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"userName\" : \"user1\",\r\n\t\"password\" : \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/hrms/logIn",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"logIn"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Roles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZXMiOlsiYWRtaW4iXSwiZW1haWwiOiJmb2V0MTk5N0BnbWFpbC5jb20iLCJpYXQiOjE2MjU4NDU2NzgsImV4cCI6MTYyNjIwNTY3OH0.svmYcMR6g2rLRMZPtN_68w23LYM9PlKE8z3QaI1gfaA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\" : 4,\r\n    \"roles\" : \"manager\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/setRole",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"setRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manage User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZXMiOlsiYWRtaW4iXSwiZW1haWwiOiJmb2V0MTk5N0BnbWFpbC5jb20iLCJpYXQiOjE2MjU4NDU2NzgsImV4cCI6MTYyNjIwNTY3OH0.svmYcMR6g2rLRMZPtN_68w23LYM9PlKE8z3QaI1gfaA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"subordinateId\" : 2,\r\n    \"managerId\" : 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/manageUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"manageUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZXMiOlsiZW1wbG95ZWUiLCJtYW5hZ2VyIl0sImVtYWlsIjoidXNlcjNAZ21haWwuY29tIiwiaWF0IjoxNjI1OTA1NTc5LCJleHAiOjE2MjYyNjU1Nzl9.LS3loCbSCsKECQwow3mSbBG1Z8iLEZQHLh-LNGu28fI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/4/find",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"4",
+								"find"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Infor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZXMiOlsiZW1wbG95ZWUiXSwiZW1haWwiOiJ0cmFuYmluaG9jY2hvMkBnbWFpbC5jb20iLCJpYXQiOjE2MjU5MDg5OTgsImV4cCI6MTYyNjI2ODk5OH0.RTSlwrlVhhV8VvC84LpEHAUPk_KUvzMF9-1sR9gYHoo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\" : \"\",\r\n    \"lastName\" : \"\",\r\n    \"phone\" : \"\",\r\n    \"dateOfBirth\" : \"\",\r\n    \"idCard\" : \"\",\r\n    \"socialInsurance\" : \"\",\r\n    \"address\" : \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/updateInfor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"updateInfor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Avatar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZXMiOlsiZW1wbG95ZWUiXSwiZW1haWwiOiJ0cmFuYmluaG9jY2hvMkBnbWFpbC5jb20iLCJpYXQiOjE2MjU4NjE3NDcsImV4cCI6MTYyNjIyMTc0N30.jSRTXa7P7s5Tmv-fZbyg56vF5bPNuA8ZaH3YMuSm4fY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/1/updateInfor/uploadAvatar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"1",
+								"updateInfor",
+								"uploadAvatar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Avatar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZXMiOlsiZW1wbG95ZWUiXSwiZW1haWwiOiJ0cmFuYmluaG9jY2hvMkBnbWFpbC5jb20iLCJpYXQiOjE2MjU4OTc4MzUsImV4cCI6MTYyNjI1NzgzNX0.s-McZTLNrj_quN0OvRiH_bpDw2kVeudoxqka8wDXUTo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/foet1/Downloads/197739621_324497919299391_8080729751449673087_n.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/2/updateInfor/uploadAvatar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"2",
+								"updateInfor",
+								"uploadAvatar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "Report Assessment Form Not Finished",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImhyIiwic3RhZmZJZCI6MTg0NjgsImlhdCI6MTYyNTU5MDI1MSwiZXhwIjoxNjI1OTUwMjUxfQ.UiqwjiUVEPIhyEwXraB9KFStinJN1WdlxCI9qY_4m1I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/report/usersNotFinishedAssessmentForm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"report",
+								"usersNotFinishedAssessmentForm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Report Probationary Form Not Finished",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImhyIiwic3RhZmZJZCI6MTI4MDYsImlhdCI6MTYyNTUwMjU4MywiZXhwIjoxNjI1NTA2MTgzfQ.qIz1jaQldDQaETU04H53EUNWBfwnZGSYxaPkzPhrnFw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/report/usersNotFinishedProbationaryForm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"report",
+								"usersNotFinishedProbationaryForm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Report Assessment Form Finished",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImhyIiwic3RhZmZJZCI6MTg0NjgsImlhdCI6MTYyNTU5MDI1MSwiZXhwIjoxNjI1OTUwMjUxfQ.UiqwjiUVEPIhyEwXraB9KFStinJN1WdlxCI9qY_4m1I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/report/usersFinishedAssessmentForm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"report",
+								"usersFinishedAssessmentForm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Report Probationary Form Finished",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImhyIiwic3RhZmZJZCI6MTg0NjgsImlhdCI6MTYyNTU5MDI1MSwiZXhwIjoxNjI1OTUwMjUxfQ.UiqwjiUVEPIhyEwXraB9KFStinJN1WdlxCI9qY_4m1I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/hrms/user/report/usersFinishedProbationaryForm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hrms",
+								"user",
+								"report",
+								"usersFinishedProbationaryForm"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
