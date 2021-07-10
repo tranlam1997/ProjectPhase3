@@ -124,23 +124,6 @@ module.exports = (User, UserInfor) => {
 
 
 
-    const logOut = async (req, res) => {
-        const token = req.body.token;
-        if (!token)
-            return res.send('Token not found');
-        const delToken = await Token.findOne({
-            where: {
-                token: token
-            }
-        });
-        if (!delToken)
-            return res.status(404).send('Token provided is not valid');
-        delToken.destroy();
-        res.send('Delete token successfully.');
-    }
-
-
-
     const deleteUser = async (req, res) => {
         const userId = req.params.id;
 
