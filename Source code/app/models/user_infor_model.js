@@ -5,29 +5,22 @@ module.exports = (sequelize, Sequelize) => {
             unique: true
         },
         avatar: {
-            type: Sequelize.BLOB('long'),
-            get() {
-                return this.getDataValue('avatar').toString('utf8');
-            }
+            type: Sequelize.BLOB('long')
         },
         avatarName: Sequelize.STRING,
+        phone: {
+            type: Sequelize.STRING,
+            unique: true
+        },
         idCard: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.STRING,
             unique: true
         },
         socialInsurance: {
             type: Sequelize.STRING,
             unique: true
         },
-        address: Sequelize.INTEGER,
-        accessToken: {
-            type: Sequelize.STRING,
-            unique: true
-        },
-        refreshToken: {
-            type: Sequelize.STRING,
-            unique: true,
-        }
+        address: Sequelize.STRING
     }, {
         omitNull: true,
         useLocalTime: true

@@ -1,12 +1,11 @@
-
-const multer = require("multer");
-const path = require("path");
+const multer = require('multer');
+const path = require('path');
 
 const imageFilter = (req, file, cb) => {
 
   if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
-    cb (new Error('Only image files are allowed!'));
-}
+    cb(new Error('Only image files are allowed!'));
+  }
   cb(null, true);
 };
 
@@ -16,10 +15,15 @@ let storage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     const id = req.params.id;
-    if(!id) return res.send("You must provide an id");
+    if (!id) return res.status(400).send( { message : 'You must provide an id' });
     cb(null, `${id}.${file.originalname}`);
   },
 });
 
-let uploadFile = multer({ storage: storage, fileFilter: imageFilter });
-module.exports ={ uploadFile };
+let uploadFile = multer({
+  storage: storage,
+  fileFilter: imageFilter
+});
+module.exports = {
+  uploadFile
+};

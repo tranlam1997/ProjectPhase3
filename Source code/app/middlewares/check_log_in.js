@@ -7,21 +7,26 @@ const checkLogIn = async (req, res, next) => {
     const user = await User.findOne({
         where: {
             userName: req.body.userName
-        }, 
-        include : Role
-    }).catch(err => createError(500, `Error while finding user \n ${err}`));
+        },
+        include: Role
+    }).catch(err => res.status(500).send({
+        message: `Error while finding user`,
+        error: err
+    }));
     if (!user) {
         return res.status(404).send({
-            message: "User Not found."
+            message: 'User Not found.'
         });
     }
+
+    // Check password
     const valid = bcrypt.compareSync(
         req.body.password,
         user.password
     );
     if (!valid) {
         return res.status(400).send({
-            message: "Password provided is invalid"
+            message: 'Password provided is invalid'
         });
     } else {
         req.user = user;

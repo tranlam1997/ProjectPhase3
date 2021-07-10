@@ -27,7 +27,7 @@ db.form = require('./form_model')(sequelize, Sequelize);
 
 
 
-db.user.hasMany(db.user, {as : "subordinates", foreignKey: "Managed by userId"});
+db.user.hasMany(db.user, {as : 'subordinates', foreignKey: 'Managed by userId'});
 db.user.hasOne(db.userInfor);
 db.userInfor.belongsTo(db.user);
 db.user.hasMany(db.form);

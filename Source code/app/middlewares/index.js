@@ -1,6 +1,5 @@
 const {authenticateJwt} = require("./auth_token");
 const {checkDuplicateUser} = require("./check_duplicate_user");
-const {getAccessToken} = require('./get_access_token');
 const validateData = require('./validate_data');
 const {checkPath} = require('./check_path');
 const {deleteFile} = require('./delete_file');
@@ -13,7 +12,6 @@ const {uploadFile} = require('./upload_file');
 module.exports = {
   authenticateJwt,
   checkDuplicateUser,
-  getAccessToken,
   validateData,
   checkPath,
   deleteFile,

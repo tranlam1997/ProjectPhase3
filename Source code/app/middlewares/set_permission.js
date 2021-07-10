@@ -18,7 +18,7 @@ const setPermission = async (req, res, next) => {
                             [Op.is]: null
                         }
                     }
-               
+
                 }).catch(err => res.status(500).send({
                     message: `Error when removing permission`,
                     error: err
@@ -37,7 +37,7 @@ const setPermission = async (req, res, next) => {
                             [Op.is]: null
                         }
                     },
-               
+
                 }).catch(err => res.status(500).send({
                     message: `Error when removing permission`,
                     error: err
@@ -60,7 +60,7 @@ const setPermission = async (req, res, next) => {
                             [Op.is]: null
                         }
                     },
-               
+
                 }).catch(err => res.status(500).send({
                     message: `Error when removing permission`,
                     error: err
@@ -87,7 +87,7 @@ const setPermission = async (req, res, next) => {
                             [Op.is]: null
                         }
                     },
-              
+
                 }).catch(err => res.status(500).send({
                     message: `Error when removing permission`,
                     error: err
@@ -110,7 +110,7 @@ const setPermission = async (req, res, next) => {
                             [Op.is]: null
                         }
                     },
-                   
+
                 }).catch(err => res.status(500).send({
                     message: `Error when removing permission`,
                     error: err

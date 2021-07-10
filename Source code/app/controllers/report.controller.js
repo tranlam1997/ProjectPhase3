@@ -3,12 +3,14 @@ let formCategory;
 
 module.exports = (Form, User, UserInfor, Op) => {
     const usersNotFinishedForm = async (req, res) => {
+        const {page, size} = req.query;
+        const {limit, offset} = functions.getPagination(page,size);
         formCategory = functions.checkFormCategory(req.path);
         const forms = await Form.findAll({
             where: {
                 [Op.and]: [{
                     status: {
-                        [Op.not]: "closed"
+                        [Op.not]: 'closed'
                     }
                 }, {
                     timeEnd: {
@@ -18,12 +20,15 @@ module.exports = (Form, User, UserInfor, Op) => {
                     formCategory: formCategory
                 }]
             },
-            include: User
+            include: User, 
+            limit,
+            offset
         }).catch(err => res.status(500).send({
-            message: `Error while finding form \n ${err}`
+            message: `Error while finding form`,
+            error : err
         }));
         if (forms.length == 0) return res.status(404).send({
-            message: "All users finished their form"
+            message: 'All users finished their form'
         });
         const users = forms.map(user => ({
             userId: user.userId,
@@ -37,11 +42,13 @@ module.exports = (Form, User, UserInfor, Op) => {
     }
 
     const usersFinishedForm = async (req, res) => {
+        const {page, size} = req.query;
+        const {limit, offset} = functions.getPagination(page,size);
         formCategory = functions.checkFormCategory(req.path);
         const forms = await Form.findAll({
             where: {
                 [Op.and]: [{
-                    status: "closed"
+                    status: 'closed'
 
                 }, {
                     timeEnd: {
@@ -51,9 +58,12 @@ module.exports = (Form, User, UserInfor, Op) => {
                     formCategory: formCategory
                 }]
             },
-            include: User
+            include: User, 
+            limit, 
+            offset
         }).catch(err => res.status(500).send({
-            message: `Error while finding form \n ${err}`
+            message: `Error while finding form`,
+            error : err
         }));
         if (forms.length == 0) return res.status(404).send({
             message: `All users not finished their ${formCategory} form`

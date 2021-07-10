@@ -21,6 +21,18 @@ app.use(express.urlencoded({
     extended: true
 }));
 
+// Check if user has logged in
+app.use(checkPath);
+
+
+app.get('/', (req, res) => {
+    res.json({
+        project: 'Human resource management system'
+    })
+});
+
+require('./app/routes')(app);
+
 
 db.sequelize.sync({force: true}).then(async () => {
     const admin = await User.create({
@@ -32,18 +44,10 @@ db.sequelize.sync({force: true}).then(async () => {
         await admin.createRole({ nameOfRole : 'admin'}).catch(err => res.status(500).send({message: `Error while set role admin \n ${err}`}));
 });
 
-app.use(checkPath);
 
 
-app.get('/', (req, res) => {
-    res.json({
-        project: "Human resource management system"
-    })
-});
-
-require('./app/routes')(app);
 
 
 app.listen(PORT, () => {
-    console.log("Main server is running on port " + PORT)
+    console.log('Main server is running on port ' + PORT)
 })
