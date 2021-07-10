@@ -1,4 +1,4 @@
-# ProjectGiaiDoan3
+# ProjectPhase3
 ## - Project phase 3 of Tran Tuan Lam of F8-Frsher NodeJs training department
 ## - Project topic: Human resource management system
 ## - Link to project content: https://docs.google.com/spreadsheets/d/10gaEy3Jg0LdbhpSfV9zC4M88YCOtqzXmSY8b2vcrZ1o/edit#gid=171308749
