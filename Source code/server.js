@@ -37,7 +37,7 @@ app.use(checkPath);
 
 app.get('/', (req, res) => {
     res.json({
-        hello: "This is my project: Human resource management system"
+        project: "Human resource management system"
     })
 });
 
