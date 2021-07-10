@@ -27,7 +27,6 @@ module.exports = (User, UserInfor) => {
         const role = await user.createRole({
             nameOfRole: 'employee'
         }).catch(err => res.status(500).send("Error while setting role for user " + err));
-        console.log(role);
         await user.addRole(role);
         res.status(200).send({
             message: "You registered successfully "
@@ -39,9 +38,7 @@ module.exports = (User, UserInfor) => {
         let permissionsOfUser = await req.user.getPermissions().catch(err => res.status(500).send({
             message: `Error while retrieving permissons of user \n ${err}`
         }));
-        console.log(permissionsOfUser)
         permissionsOfUser = permissionsOfUser.map(permission => permission.permissionDetail);
-        console.log(permissionsOfUser);
         res.status(200).send({
             message: "Log in successfully",
             accessToken: req.accessToken,
@@ -74,8 +71,6 @@ module.exports = (User, UserInfor) => {
     }
     const findUser = (req, res) => {
         const id = req.params.id;
-        console.log(id);
-        console.log(req.user.id);
         if (id != req.user.id) return res.status(403).send({
             message: "forbidden"
         });
@@ -136,7 +131,6 @@ module.exports = (User, UserInfor) => {
                 message: `Error while finding user`,
                 error: err
             }));
-            console.log('hahaha')
             if (!user.value || !userInfor.value) return res.status(404).send({
                 message: 'User not found'
             });
@@ -144,7 +138,6 @@ module.exports = (User, UserInfor) => {
                 message: "Error while removing user",
                 error: err
             }));
-            console.log("hahaha")
             res.send("Delele user successfully!");
     }
 
@@ -178,7 +171,6 @@ module.exports = (User, UserInfor) => {
                 message: 'Not allowed to manage director or admin'
             });
         } else {
-            console.log(managerRoles);
             if (!managerRoles.includes('manager') && !managerRoles.includes('director')) {
                 return res.status(400).send({
                     message: 'Not allowed to manage other users if you are not director or manager'
