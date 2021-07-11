@@ -21,9 +21,6 @@ app.use(express.urlencoded({
     extended: true
 }));
 
-// Check if user has logged in
-app.use(checkPath);
-
 
 app.get('/', (req, res) => {
     res.json({
