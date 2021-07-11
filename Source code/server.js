@@ -47,4 +47,4 @@ db.sequelize.sync({force: true}).then(async () => {
 
 app.listen(PORT, () => {
     console.log('Main server is running on port ' + PORT)
-})
+});
