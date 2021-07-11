@@ -264,7 +264,6 @@ module.exports = (User, UserInfor) => {
         logIn,
         updateUserInfor,
         findUser,
-        logOut,
         deleteUser,
         manageUser,
         setRole
