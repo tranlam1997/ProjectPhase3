@@ -5,7 +5,7 @@ const userInfor = db.userInfor;
 const Op = db.Sequelize.Op;
 
 
-exports.user = require('./user.controller')(user,userInfor);
-exports.form = require('./form.controller')(form,user,userInfor,Op);
-exports.report = require('./report.controller')(form,user,userInfor,Op);
-exports.upload = require('./file.controller');
+exports.user = require('./user_controller')(user,userInfor);
+exports.form = require('./form_controller')(form,user,userInfor,Op);
+exports.report = require('./report_controller')(form,user,userInfor,Op);
+exports.upload = require('./file_controller');
