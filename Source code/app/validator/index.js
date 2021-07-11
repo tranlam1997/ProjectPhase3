@@ -6,4 +6,5 @@ const schemas = require('../schema');
 
 
 exports.validate_user = ajv.compile(schemas.userSchema);
+exports.validate_userInfor = ajv.compile(schemas.userInforSchema);
 exports.validate_form = ajv.compile(schemas.formSchema)
