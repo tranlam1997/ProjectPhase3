@@ -3,20 +3,63 @@ module.exports = (router, controller, middleware) => {
         '/user/form/viewAssessment',
         controller.form.viewForm
     );
-    router.post('/user/form/createAssessment', middleware.checkRole.isAdminOrHr, controller.form.createForm);
-    router.put('/user/form/updateAssessment', controller.form.updateForm);
-    router.post('/user/form/submitAssessment', middleware.validateData.validateForm, controller.form.submitForm);
-    router.post('/user/form/approveAssessment',middleware.checkRole.isManagerOrDirectorOrAdmin, middleware.checkFormExpiration, controller.form.approveForm);
-    router.post('/user/form/closeAssessment',middleware.checkRole.isAdminOrHr,middleware.checkFormExpiration,controller.form.closeForm);
-    
+    router.post(
+        '/user/form/createAssessment',
+        middleware.checkRole.isAdminOrHr,
+        controller.form.createForm
+    );
+    router.put(
+        '/user/form/updateAssessment',
+        middleware.validateData.validateForm,
+        controller.form.updateForm
+    );
+    router.post(
+        '/user/form/submitAssessment',
+        middleware.validateData.validateForm,
+        controller.form.submitForm
+    );
+    router.put(
+        '/user/form/approveAssessment',
+        middleware.checkRole.isManagerOrDirectorOrAdmin,
+        middleware.checkFormExpiration,
+        controller.form.approveForm
+    );
+    router.put(
+        '/user/form/closeAssessment',
+        middleware.checkRole.isAdminOrHr,
+        middleware.checkFormExpiration,
+        controller.form.closeForm);
+
     router.get(
         '/user/form/viewProbationary',
         controller.form.viewForm
     );
-    router.post('/user/form/createProbationary', middleware.checkRole.isAdminOrHr, controller.form.createForm);
-    router.put('/user/form/updateProbationary', controller.form.updateForm);
-    router.post('/user/form/submitProbationary',middleware.validateData.validateForm, controller.form.submitForm);
-    router.post('/user/form/approveProbationary',middleware.checkRole.isManagerOrDirectorOrAdmin, middleware.checkFormExpiration, controller.form.approveForm);
-    router.post('/user/form/closeProbationary',middleware.checkRole.isAdminOrHr,middleware.checkFormExpiration,controller.form.closeForm);
-    
+    router.post(
+        '/user/form/createProbationary',
+        middleware.checkRole.isAdminOrHr,
+        controller.form.createForm
+    );
+    router.put(
+        '/user/form/updateProbationary',
+        middleware.validateData.validateForm,
+        controller.form.updateForm
+    );
+    router.post(
+        '/user/form/submitProbationary',
+        middleware.validateData.validateForm,
+        controller.form.submitForm
+    );
+    router.put(
+        '/user/form/approveProbationary',
+        middleware.checkRole.isManagerOrDirectorOrAdmin,
+        middleware.checkFormExpiration,
+        controller.form.approveForm
+    );
+    router.put(
+        '/user/form/closeProbationary',
+        middleware.checkRole.isAdminOrHr,
+        middleware.checkFormExpiration,
+        controller.form.closeForm
+    );
+
 }
