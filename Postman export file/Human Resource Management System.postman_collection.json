@@ -378,7 +378,7 @@
 								}
 							]
 						},
-						"method": "POST",
+						"method": "PUT",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -388,7 +388,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"comment\" : \"\"\r\n}"
+							"raw": "{\r\n    \"comment\" : \"comment\"\r\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/hrms/user/form/approveAssessment?formId=1",
@@ -426,7 +426,7 @@
 								}
 							]
 						},
-						"method": "POST",
+						"method": "PUT",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -474,7 +474,7 @@
 								}
 							]
 						},
-						"method": "POST",
+						"method": "PUT",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -522,7 +522,7 @@
 								}
 							]
 						},
-						"method": "POST",
+						"method": "PUT",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -925,7 +925,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImhyIiwic3RhZmZJZCI6MTg0NjgsImlhdCI6MTYyNTU5MDI1MSwiZXhwIjoxNjI1OTUwMjUxfQ.UiqwjiUVEPIhyEwXraB9KFStinJN1WdlxCI9qY_4m1I",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZXMiOlsiZW1wbG95ZWUiXSwiZW1haWwiOiJ1c2VyMUBnbWFpbC5jb20iLCJpYXQiOjE2MjU5ODE0MjgsImV4cCI6MTYyNjM0MTQyOH0.hQARaH2Qi8krK1VM0AcQ9a5g4mtqrXjhZ5bScQoMuAw",
 									"type": "string"
 								}
 							]
