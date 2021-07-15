@@ -8,6 +8,7 @@ require('dotenv').config();
 
 
 module.exports = (Form, User, UserInfor, Op) => {
+    
     const createForm = async (req, res) => {
         formCategory = functions.checkFormCategory(req.path);
         if (!req.body) {
@@ -36,10 +37,9 @@ module.exports = (Form, User, UserInfor, Op) => {
             }
         }).catch(err => res.status(500).send({
             message: `Error while finding user infor`,
-            error: err
+            error: err.message
         }));
-
-        if (!userInfor) res.status(404).send({
+        if (userInfor.length == 0) res.status(404).send({
             message: 'User infor not found'
         });
 
@@ -52,7 +52,7 @@ module.exports = (Form, User, UserInfor, Op) => {
             }
         }).catch(err => res.status(500).send({
             message: `Error while finding user`,
-            error: err
+            error: err.message
         }));
 
         if (!users) return res.status(404).send({
@@ -61,14 +61,14 @@ module.exports = (Form, User, UserInfor, Op) => {
 
         const counts = await users.map(item => item.countForms().catch(err => res.status(500).send({
             message: `Error while counting forms.`,
-            error: err
+            error: err.message
         })));
 
         for (let i = 0; i < users.length; i++) {
             if (counts[i] !== 0) {
                 forms = await users[i].getForms().catch(err => res.status(500).send({
                     message: `Error while retrieving forms \n`,
-                    error: err
+                    error: err.message
                 }));
                 isDuplicateYear = forms.find(obj => obj.timeEnd.getFullYear() === new Date().getFullYear)
                 notClosedExisted = forms.find(obj => obj.status !== 'closed');
@@ -99,7 +99,7 @@ module.exports = (Form, User, UserInfor, Op) => {
                     timeEnd: date.addDays(now, 30)
                 }).catch(err => res.status(500).send({
                     message: 'Error while creating form ',
-                    error: err
+                    error: err.message
                 }));
 
                 if (!data) return res.status(500).send({ message : 'Can not create form'});
@@ -124,7 +124,7 @@ module.exports = (Form, User, UserInfor, Op) => {
 
         transporter.sendMail(mailOptions, function (error, info) {
             if (error) {
-                res.status(500).send({
+                return res.status(500).send({
                     message: `Error while sending email`,
                     error : error
                 });
@@ -160,10 +160,10 @@ module.exports = (Form, User, UserInfor, Op) => {
                 offset
             }).catch(err => res.status(500).send({
                 message: `Error while finding ${formCategory} form`,
-                error : err
+                error : err.message
             }))
-            if (!form) return res.status(404).send({
-                message: 'Form not found'
+            if (form.length == 0) return res.status(404).send({
+                message: 'There is no form yet'
             });
             res.send({
                 message: 'Retrieve forms successfully',
@@ -173,14 +173,14 @@ module.exports = (Form, User, UserInfor, Op) => {
         } else if (roles.includes('manager') || roles.includes('director')) {
             const manager = await User.findByPk(req.user.id).catch(err => res.status(500).send({
                 message: `Error while finding user`,
-                error : err
+                error : err.message
             }));
             if (!manager) return res.status(404).send({
                 message: 'User not found'
             });
             const subordinate = await manager.getSubordinates().catch(err => res.status(500).send({
                 message: `Error while retrieving subordinates`,
-                error : err
+                error : err.message
             }));
             if (!subordinate) return res.status(404).send({
                 message: 'Subordinates not found'
@@ -200,10 +200,10 @@ module.exports = (Form, User, UserInfor, Op) => {
                 offset
             }).catch(err => res.status(500).send({
                 message: `Error while finding form`,
-                error : err
+                error : err.message
             }))
-            if (!form) return res.status(404).send({
-                message: 'Form not found'
+            if (form.length == 0) return res.status(404).send({
+                message: 'There is no form yet'
             });
             res.send({
                 message: 'Retrieve forms successfully',
@@ -222,10 +222,10 @@ module.exports = (Form, User, UserInfor, Op) => {
                 offset
             }).catch(err => res.status(500).send({
                 message: `Error while finding form`,
-                error : error
+                error : err.message
             }))
-            if (!form) return res.status(404).send({
-                message: 'Form not found'
+            if (form.length == 0) return res.status(404).send({
+                message: 'There is no form yet'
             });
             res.send({
                 message: 'Retrieve forms successfully',
@@ -235,6 +235,8 @@ module.exports = (Form, User, UserInfor, Op) => {
         }
     }
 
+
+
     const submitForm = async (req, res) => {
         formCategory = functions.checkFormCategory(req.path);
         const form = await Form.findOne({
@@ -243,11 +245,13 @@ module.exports = (Form, User, UserInfor, Op) => {
                     userId: req.user.id
                 }, {
                     formCategory: formCategory
+                }, {
+                    status : 'new'
                 }]
             }
         }).catch(err => res.status(500).send({
             message: `Error while finding form`,
-            error : err
+            error : err.message
         }));
         if (!form) return res.status(404).send({
             message: 'You do not have any forms yet'
@@ -256,22 +260,15 @@ module.exports = (Form, User, UserInfor, Op) => {
             message: 'You must fill in all the fields'
         });
         const data = await form.update({
-            agency: req.body.agency,
-            address: req.body.address,
-            phone: req.body.phone,
-            email: req.body.email,
-            qualification: req.body.qualification,
             unit: req.body.unit,
             position: req.body.position,
-            contentAssessment: req.body.contentAssessment,
-            assessmentResult: req.body.assessmentResult,
-            probationaryResult: req.body.probationaryResult,
+            content: req.body.content,
+            result: req.body.result,
             proposal: req.body.proposal,
-            signature: req.body.signature,
             status: 'submitted',
         }).catch(err => res.status(500).send({
             message: 'Error while submitting form',
-            error : err
+            error : err.message
         }));
         if (!data) return res.status(500).send({
             message: 'Can not submit form. Server error'
@@ -285,40 +282,38 @@ module.exports = (Form, User, UserInfor, Op) => {
 
     const updateForm = async (req, res) => {
         formCategory = functions.checkFormCategory(req.path);
-        if (!req.body) return res.status(200).send('You updated nothing');
+        if (!req.body) return res.status(200).send('You updated nothing');;
         const form = await Form.findOne({
             where: {
                 [Op.and]: [{
                     userId: req.user.id
                 }, {
                     formCategory: formCategory
+                }, {
+                    status : 'new'
                 }]
             }
         }).catch(err => res.status(500).send({
-            message : 'Can not find form',
-            error : err
+            message : 'Cannot find form',
+            error : err.message
         }))
+        if(!form) return res.status(404).send({message : "Form not found"});
         const data = await form.update({
-            agency: req.body.agency,
-            address: req.body.address,
-            phone: req.body.phone,
-            email: req.body.email,
-            qualification: req.body.qualification,
             unit: req.body.unit,
             position: req.body.position,
-            contentAssessment: req.body.contentAssessment,
-            assessmentResult: req.body.assessmentResult,
-            probationaryResult: req.body.probationaryResult,
+            content: req.body.content,
+            result: req.body.result,
             proposal: req.body.proposal,
-            signature: req.body.signature,
             status: 'submitted',
         }).catch(err => res.status(500).send({ 
             message : 'Error while updating form',
-            error : err
+            error : err.message
         }));
         if (!data) return res.status(500).send('Can not update form');
         res.status(200).send({ message : 'Update form successfully' });
     }
+
+
 
     const approveForm = async (req, res) => {
         formCategory = functions.checkFormCategory(req.path);
@@ -334,19 +329,19 @@ module.exports = (Form, User, UserInfor, Op) => {
             }
         }).catch(err => res.status(500).send({
             message: 'Error while finding form',
-            error : err
+            error : err.message
         }));
         if (!form) return res.status(404).send('This form is not in status of submitted yet ');
         const manager = await User.findByPk(req.user.id).catch(err => res.status(500).send({
             message: `Error while finding user`,
-            error : err
+            error : err.message
         }));
         if (!manager) return res.status(404).send({
             message: 'User not found'
         });
         const subordinate = await manager.getSubordinates().catch(err => res.status(500).send({
             message: `Error while retrieving subordinates`,
-            error : err
+            error : err.message
         }));
         if (subordinate.length == 0) return res.status(404).send({
             message: 'This manager not have any subordinate'
@@ -358,18 +353,18 @@ module.exports = (Form, User, UserInfor, Op) => {
         form.comment = req.body.comment;
         await form.save().catch(err => res.status(500).send({
             message: 'Error while updating status',
-            error : err
+            error : err.message
         }));
         res.status(200).send({
             message: 'Approve form successfully'
-        })
+        });
     }
 
     const closeForm = async (req, res) => {
         const formId = req.query.formId;
         const form = await Form.findByPk(formId).catch(err => res.status(500).send({
             message: `Error while finding form`,
-            error : err
+            error : err.message
         }));
         if (!form) return res.status(404).send({
             message: 'Form not found'
@@ -383,13 +378,14 @@ module.exports = (Form, User, UserInfor, Op) => {
         form.status = 'closed';
         await form.save().catch(err => res.status(500).send({
             message: `Error while changing status of form`,
-            error : err
+            error : err.message
         }));
         res.status(200).send({
             message: 'Close form successfully'
         });
     }
 
+    
     return {
         updateForm,
         submitForm,

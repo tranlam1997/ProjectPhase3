@@ -1,0 +1,1191 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Human Resource Management System",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080/hrms",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/user/form/submitAssessment": {
+      "post": {
+        "tags": [
+          "Form"
+        ],
+        "summary": "Submit Assessment Form",
+        "operationId": "SubmitAssessmentForm",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubmitAssessmentFormRequest"
+              },
+              "example": {
+                "unit": "1",
+                "position": "position1",
+                "content": "content1aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "result": "resultaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/form/submitProbationary": {
+      "post": {
+        "tags": [
+          "Form"
+        ],
+        "summary": "Submit Probationary Form",
+        "operationId": "SubmitProbationaryForm",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubmitProbationaryFormRequest"
+              },
+              "example": {
+                "unit": "1",
+                "position": "position1",
+                "content": "content1",
+                "result": "result"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/form/viewAssessment": {
+      "get": {
+        "tags": [
+          "Form"
+        ],
+        "summary": "View Assessment Form",
+        "operationId": "ViewAssessmentForm",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/form/viewProbationary": {
+      "get": {
+        "tags": [
+          "Form"
+        ],
+        "summary": "View Probationary Form",
+        "operationId": "ViewProbationaryForm",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/form/updateAssessment": {
+      "put": {
+        "tags": [
+          "Form"
+        ],
+        "summary": "Update Assessment Form",
+        "operationId": "UpdateAssessmentForm",
+        "parameters": [
+          {
+            "name": "staffId",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAssessmentFormRequest"
+              },
+              "example": {
+                "unit": "1",
+                "position": "position1",
+                "content": "content1",
+                "result": "result"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/form/updateProbationary": {
+      "put": {
+        "tags": [
+          "Form"
+        ],
+        "summary": "Update Probationary Form",
+        "operationId": "UpdateProbationaryForm",
+        "parameters": [
+          {
+            "name": "staffId",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProbationaryFormRequest"
+              },
+              "example": {
+                "unit": "1",
+                "position": "position1",
+                "content": "content1",
+                "result": "result"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/form/createAssessment": {
+      "post": {
+        "tags": [
+          "Form"
+        ],
+        "summary": "Create Assessment Form",
+        "operationId": "CreateAssessmentForm",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAssessmentFormRequest"
+              },
+              "example": {
+                "staffId": "12845",
+                "passEmail": ""
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/form/createProbationary": {
+      "post": {
+        "tags": [
+          "Form"
+        ],
+        "summary": "Create Probationary Form",
+        "operationId": "CreateProbationaryForm",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProbationaryFormRequest"
+              },
+              "example": {
+                "staffId": "",
+                "passEmail": ""
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/form/approveAssessment": {
+      "put": {
+        "tags": [
+          "Form"
+        ],
+        "summary": "Approve Assessment Form",
+        "operationId": "ApproveAssessmentForm",
+        "parameters": [
+          {
+            "name": "formId",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApproveAssessmentFormRequest"
+              },
+              "example": {
+                "comment": "comment"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/form/approveProbationary": {
+      "put": {
+        "tags": [
+          "Form"
+        ],
+        "summary": "Approve Probationary Form",
+        "operationId": "ApproveProbationaryForm",
+        "parameters": [
+          {
+            "name": "formId",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApproveProbationaryFormRequest"
+              },
+              "example": {
+                "comment": ""
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/form/closeAssessment": {
+      "put": {
+        "tags": [
+          "Form"
+        ],
+        "summary": "Close Assessment Form",
+        "operationId": "CloseAssessmentForm",
+        "parameters": [
+          {
+            "name": "formId",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/form/closeProbationary": {
+      "put": {
+        "tags": [
+          "Form"
+        ],
+        "summary": "Close Probationary Form",
+        "operationId": "CloseProbationaryForm",
+        "parameters": [
+          {
+            "name": "formId",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/register": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Register",
+        "operationId": "Register",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
+              },
+              "example": {
+                "firstName": "Tran",
+                "lastName": "Lam",
+                "userName": "user3",
+                "password": "123456",
+                "email": "user3@gmail.com"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/logIn": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Log In",
+        "operationId": "LogIn",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LogInRequest"
+              },
+              "example": {
+                "userName": "user1",
+                "password": "123456"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/setRole": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Set Roles",
+        "operationId": "SetRoles",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetRolesRequest"
+              },
+              "example": {
+                "userId": 3,
+                "role": "hr"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/manage": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Manage User",
+        "operationId": "ManageUser",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ManageUserRequest"
+              },
+              "example": {
+                "subordinateId": 3,
+                "managerId": 4
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/findAll": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Find All Users",
+        "operationId": "FindAllUsers",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/infor/update": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Update Infor",
+        "operationId": "UpdateInfor",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateInforRequest"
+              },
+              "example": {
+                "firstName": "Tran",
+                "lastName": "Nam",
+                "phone": "0946377596",
+                "dateOfBirth": "2020-12-09",
+                "idCard": "4353457890"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/infor/uploadAvatar": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Upload Avatar",
+        "operationId": "UploadAvatar",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "encoding": {},
+              "schema": {
+                "required": [
+                  "file"
+                ],
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/infor/updateAvatar": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Update Avatar",
+        "operationId": "UpdateAvatar",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "encoding": {},
+              "schema": {
+                "required": [
+                  "file"
+                ],
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/infor/delete": {
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Delete User",
+        "operationId": "DeleteUser",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/report/notFinishedAssessmentForm": {
+      "get": {
+        "tags": [
+          "Report"
+        ],
+        "summary": "Report Assessment Form Not Finished",
+        "operationId": "ReportAssessmentFormNotFinished",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/report/notFinishedProbationaryForm": {
+      "get": {
+        "tags": [
+          "Report"
+        ],
+        "summary": "Report Probationary Form Not Finished",
+        "operationId": "ReportProbationaryFormNotFinished",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/report/finishedAssessmentForm": {
+      "get": {
+        "tags": [
+          "Report"
+        ],
+        "summary": "Report Assessment Form Finished",
+        "operationId": "ReportAssessmentFormFinished",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/report/finishedProbationaryForm": {
+      "get": {
+        "tags": [
+          "Report"
+        ],
+        "summary": "Report Probationary Form Finished",
+        "operationId": "ReportProbationaryFormFinished",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SubmitAssessmentFormRequest": {
+        "title": "SubmitAssessmentFormRequest",
+        "required": [
+          "unit",
+          "position",
+          "content",
+          "result"
+        ],
+        "type": "object",
+        "properties": {
+          "unit": {
+            "type": "string"
+          },
+          "position": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "unit": "1",
+          "position": "position1",
+          "content": "content1aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "result": "resultaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      },
+      "SubmitProbationaryFormRequest": {
+        "title": "SubmitProbationaryFormRequest",
+        "required": [
+          "unit",
+          "position",
+          "content",
+          "result"
+        ],
+        "type": "object",
+        "properties": {
+          "unit": {
+            "type": "string"
+          },
+          "position": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "unit": "1",
+          "position": "position1",
+          "content": "content1",
+          "result": "result"
+        }
+      },
+      "UpdateAssessmentFormRequest": {
+        "title": "UpdateAssessmentFormRequest",
+        "required": [
+          "unit",
+          "position",
+          "content",
+          "result"
+        ],
+        "type": "object",
+        "properties": {
+          "unit": {
+            "type": "string"
+          },
+          "position": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "unit": "1",
+          "position": "position1",
+          "content": "content1",
+          "result": "result"
+        }
+      },
+      "UpdateProbationaryFormRequest": {
+        "title": "UpdateProbationaryFormRequest",
+        "required": [
+          "unit",
+          "position",
+          "content",
+          "result"
+        ],
+        "type": "object",
+        "properties": {
+          "unit": {
+            "type": "string"
+          },
+          "position": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "unit": "1",
+          "position": "position1",
+          "content": "content1",
+          "result": "result"
+        }
+      },
+      "CreateAssessmentFormRequest": {
+        "title": "CreateAssessmentFormRequest",
+        "required": [
+          "staffId",
+          "passEmail"
+        ],
+        "type": "object",
+        "properties": {
+          "staffId": {
+            "type": "string"
+          },
+          "passEmail": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "staffId": "12845",
+          "passEmail": ""
+        }
+      },
+      "CreateProbationaryFormRequest": {
+        "title": "CreateProbationaryFormRequest",
+        "required": [
+          "staffId",
+          "passEmail"
+        ],
+        "type": "object",
+        "properties": {
+          "staffId": {
+            "type": "string"
+          },
+          "passEmail": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "staffId": "",
+          "passEmail": ""
+        }
+      },
+      "ApproveAssessmentFormRequest": {
+        "title": "ApproveAssessmentFormRequest",
+        "required": [
+          "comment"
+        ],
+        "type": "object",
+        "properties": {
+          "comment": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "comment": "comment"
+        }
+      },
+      "ApproveProbationaryFormRequest": {
+        "title": "ApproveProbationaryFormRequest",
+        "required": [
+          "comment"
+        ],
+        "type": "object",
+        "properties": {
+          "comment": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "comment": ""
+        }
+      },
+      "RegisterRequest": {
+        "title": "RegisterRequest",
+        "required": [
+          "firstName",
+          "lastName",
+          "userName",
+          "password",
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "userName": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "firstName": "Tran",
+          "lastName": "Lam",
+          "userName": "user3",
+          "password": "123456",
+          "email": "user3@gmail.com"
+        }
+      },
+      "LogInRequest": {
+        "title": "LogInRequest",
+        "required": [
+          "userName",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "userName": "user1",
+          "password": "123456"
+        }
+      },
+      "SetRolesRequest": {
+        "title": "SetRolesRequest",
+        "required": [
+          "userId",
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "userId": 3,
+          "role": "hr"
+        }
+      },
+      "ManageUserRequest": {
+        "title": "ManageUserRequest",
+        "required": [
+          "subordinateId",
+          "managerId"
+        ],
+        "type": "object",
+        "properties": {
+          "subordinateId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "managerId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "subordinateId": 3,
+          "managerId": 4
+        }
+      },
+      "UpdateInforRequest": {
+        "title": "UpdateInforRequest",
+        "required": [
+          "firstName",
+          "lastName",
+          "phone",
+          "dateOfBirth",
+          "idCard"
+        ],
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "dateOfBirth": {
+            "type": "string"
+          },
+          "idCard": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "firstName": "Tran",
+          "lastName": "Nam",
+          "phone": "0946377596",
+          "dateOfBirth": "2020-12-09",
+          "idCard": "4353457890"
+        }
+      }
+    },
+    "securitySchemes": {
+      "httpBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "httpBearer": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Form"
+    },
+    {
+      "name": "User"
+    },
+    {
+      "name": "Report"
+    }
+  ]
+}

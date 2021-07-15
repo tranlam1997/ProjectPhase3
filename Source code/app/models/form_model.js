@@ -26,9 +26,6 @@ module.exports = (sequelize, Sequelize) => {
             noUpdate: true
         }
 
-    }, {
-        omitNull: true,
-        useLocalTime: true
     });
     return Form;
 }

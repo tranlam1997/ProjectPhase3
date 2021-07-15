@@ -1,23 +1,21 @@
-const {authenticateJwt} = require("./auth_token");
-const {checkDuplicateUser} = require("./check_duplicate_user");
-const validateData = require('./validate_data');
-const {checkPath} = require('./check_path');
-const {deleteFile} = require('./delete_file');
-const checkRole = require('./check_role');
-const {checkFormExpiration} = require('./check_form_expiration');
-const {checkLogIn} = require('./check_log_in');
-const {setPermission} = require('./set_permission');
-const {uploadFile} = require('./upload_file');
+const {authenticateJwt} = require("./authentication");
+const {checkDuplicateUser} = require("./duplicate_user_checking");
+const validateData = require('./data_validation');
+const {deleteFile} = require('./file_deletion');
+const checkPermission = require('./authorization');
+const {checkFormExpiration} = require('./form_expiration_checking');
+const {checkLogIn} = require('./log_in_checking');
+const {uploadFile} = require('./file_uploading');
+const checkRole = require('./role_checking');
 
 module.exports = {
   authenticateJwt,
   checkDuplicateUser,
   validateData,
-  checkPath,
   deleteFile,
-  checkRole,
+  checkPermission,
   checkFormExpiration,
   checkLogIn,
-  setPermission,
-  uploadFile
+  uploadFile,
+  checkRole
 };

@@ -3,11 +3,11 @@ const app = express();
 const logger = require('morgan');
 const cors = require('cors');
 const db = require('./app/models');
-const { checkPath } = require('./app/middlewares');
-const User = db.user;
-const bcrypt = require('bcrypt');
-require('dotenv').config();
+const swaggerUI = require('swagger-ui-express');
+const swaggerAPI = require('./swaggerAPI.json')
 const PORT = process.env.PORT || 8080;
+
+
 
 
 app.use(cors());
@@ -21,6 +21,7 @@ app.use(express.urlencoded({
     extended: true
 }));
 
+app.use('/hrms/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerAPI));
 
 app.get('/', (req, res) => {
     res.json({
@@ -31,15 +32,7 @@ app.get('/', (req, res) => {
 require('./app/routes')(app);
 
 
-db.sequelize.sync({force: true}).then(async () => {
-    const admin = await User.create({
-        userName: 'admin',
-        password:  bcrypt.hashSync(process.env.ADMIN_SECRET_KEY, parseInt(process.env.CRYPTO_KEY)),
-        email: 'foet1997@gmail.com',
-        phone: '0946377596'
-    }).catch(err => res.status(500).send({message: `Error while creating user \n ${err}`}));
-        await admin.createRole({ nameOfRole : 'admin'}).catch(err => res.status(500).send({message: `Error while set role admin \n ${err}`}));
-});
+db.sequelize.sync();
 
 
 

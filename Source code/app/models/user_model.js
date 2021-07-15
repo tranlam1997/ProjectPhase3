@@ -7,14 +7,10 @@ module.exports = (sequelize, Sequelize) => {
         password: Sequelize.STRING,
         firstName: Sequelize.STRING,
         lastName: Sequelize.STRING,
-        dateOfBirth: Sequelize.DATE,
         email: {
             type: Sequelize.STRING,
             unique: true
         }       
-    }, {
-        omitNull: true,
-        useLocalTime: true
     });
     return user;
 }

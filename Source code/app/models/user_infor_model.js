@@ -8,6 +8,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.BLOB('long')
         },
         avatarName: Sequelize.STRING,
+        dateOfBirth: Sequelize.DATE,
         phone: {
             type: Sequelize.STRING,
             unique: true
@@ -20,10 +21,11 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             unique: true
         },
-        address: Sequelize.STRING
-    }, {
-        omitNull: true,
-        useLocalTime: true
+        address: Sequelize.STRING,
+        accessToken : {
+            type: Sequelize.STRING,
+            unique: true
+        }
     })
     return userInfor;
 }

@@ -27,21 +27,16 @@ db.form = require('./form_model')(sequelize, Sequelize);
 
 
 
-db.user.hasMany(db.user, {as : 'subordinates', foreignKey: 'Managed by userId'});
+db.user.hasMany(db.user, {as : "subordinates", foreignKey: "Managed by userId"});
 db.user.hasOne(db.userInfor);
 db.userInfor.belongsTo(db.user);
 db.user.hasMany(db.form);
 db.form.belongsTo(db.user);
-db.user.hasMany(db.role);
-db.role.belongsToMany(db.user, {
-    through: 'user_role'
-});
+db.user.hasOne(db.role);
+db.role.belongsTo(db.user);
+
+db.role.hasMany(db.permission);
 
 
-db.user.hasMany(db.permission);
-
-
-db.permission.belongsToMany(db.user, {
-    through: 'user_permission'
-});
+db.permission.belongsTo(db.role);
 module.exports = db;

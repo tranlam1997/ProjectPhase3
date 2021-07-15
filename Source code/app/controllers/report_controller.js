@@ -1,7 +1,8 @@
 const functions = require('../functions');
 let formCategory;
 
-module.exports = (Form, User, UserInfor, Op) => {
+module.exports = (Form, User, Op) => {
+
     const usersNotFinishedForm = async (req, res) => {
         const {page, size} = req.query;
         const {limit, offset} = functions.getPagination(page,size);
@@ -25,7 +26,7 @@ module.exports = (Form, User, UserInfor, Op) => {
             offset
         }).catch(err => res.status(500).send({
             message: `Error while finding form`,
-            error : err
+            error : err.message
         }));
         if (forms.length == 0) return res.status(404).send({
             message: 'All users finished their form'
@@ -41,6 +42,7 @@ module.exports = (Form, User, UserInfor, Op) => {
         });
     }
 
+    
     const usersFinishedForm = async (req, res) => {
         const {page, size} = req.query;
         const {limit, offset} = functions.getPagination(page,size);
@@ -63,7 +65,7 @@ module.exports = (Form, User, UserInfor, Op) => {
             offset
         }).catch(err => res.status(500).send({
             message: `Error while finding form`,
-            error : err
+            error : err.message
         }));
         if (forms.length == 0) return res.status(404).send({
             message: `All users not finished their ${formCategory} form`
